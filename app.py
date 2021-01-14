@@ -15,3 +15,6 @@ def index():
 def scrape():
     posts = scraper()
     return render_template('posts.html', posts=posts)
+
+if __name__ == '__main__':
+    app.run(debug=True)

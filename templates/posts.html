@@ -3,9 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>View Posts</title>
+    <style>
+        body {
+            background-image: url('/static/bg.png');
+            /* height: 100vh; */
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            min-width: 100%;
+            min-height: 100%;
+        }
+        .posts {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: flex-end;
+            position: absolute;
+            bottom: 0;
+            width: 100vw;
+        }
+        .details {
+            display: flex;
+            flex-direction: row wrap;
+            justify-content: space-between;
+        }
+        .entry {
+            background-color: #444;
+            padding: 10px;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="root">
+        <div class="details">
+            <p class="entry">
+                <i class="fa fa-user"></i>
+                Akash Goyal
+            </p>
+            <p class="entry">
+                <i class="fa fa-phone"></i>
+                8859110045
+            </p>
+            <p class="entry">
+                <a href="mailto:goyal.akash0123@gmail.com" style="text-decoration: none; color: #fff;">
+                    <i class="fa fa-envelope"></i>
+                    goyal.akash0123@gmail.com
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="posts">
+        {% for post in posts %}
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Post on Medium</h5>
+              <a href="{{ post.url }}" class="btn btn-primary">Read full post</a>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
